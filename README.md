@@ -38,7 +38,7 @@ This project provides a set of RESTful APIs for managing hospital-related data. 
 ```bash
 mvn clean install
 mvn spring-boot:run
-
+```
 ## API Endpoints
 
 ### Doctors:
@@ -71,7 +71,22 @@ mvn spring-boot:run
 2. Create a new branch:
    ```bash
    git checkout -b feature-branch
-```
+   ```
 3. Commit your changes:
+   ```bash
+   git commit -am 'Add new feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-branch
+   ```
+5. Create a new Pull Request.
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+For questions or issues, please contact [musabsoos10@gmail.com](musabsoos10@gmail.com).
 
