@@ -10,6 +10,7 @@ This project provides a set of RESTful APIs for managing hospital-related data. 
 - **Patient Management:** Add, view, and update patient information. Assign medications and doctors to patients.
 - **Medication Management:** Add and view medications.
 - **Specialization Management:** Add and view specializations.
+- **Appointment Management:** Schedule, view, and update appointments.
 
 ## Technology Stack
 
@@ -47,6 +48,7 @@ mvn spring-boot:run
 - **GET /Doctor/byName** - Retrieve a doctor by name
 - **POST /Doctor** - Add a new doctor
 - **POST /Doctor/{doctorId}/to/{specId}** - Assign a specialization to a doctor
+- **PUT /Doctor/{doctorId}** - Update a doctor's details (updating functionality should be defined as needed)
 
 ### Patients:
 
@@ -54,6 +56,7 @@ mvn spring-boot:run
 - **POST /Patient** - Add a new patient
 - **POST /Patient/med/{medId}/to/{patId}** - Assign medication to a patient
 - **POST /Patient/patient/{patId}/to/{docId}** - Assign a patient to a doctor
+- **PUT /Patient/{patientId}** - Update a patient's details
 
 ### Medications:
 
@@ -64,6 +67,12 @@ mvn spring-boot:run
 
 - **GET /Spec** - Retrieve all specializations
 - **POST /Spec** - Add a new specialization
+- **PUT /Spec/{specializationId}** - Update a specialization's name
+
+### Appointments:
+- **GET /Appointment** - Retrieve all appointments
+- **POST /Appointment/schedule** - Schedule a new appointment
+- **PUT /Appointment/{appointmentId}** - Update an existing appointment
 
 ## Annotations Explained
 
