@@ -65,6 +65,68 @@ mvn spring-boot:run
 - **GET /Spec** - Retrieve all specializations
 - **POST /Spec** - Add a new specialization
 
+## Annotations Explained
+
+### @RestController
+- **Description:** Indicates that the class is a RESTful controller where every method returns a domain object instead of a view. It is a combination of `@Controller` and `@ResponseBody`.
+
+### @RequestMapping
+- **Description:** Maps HTTP requests to handler methods of MVC and REST controllers.
+- **Example:** `@RequestMapping(path = "/Doctor")`
+
+### @GetMapping
+- **Description:** Shortcut for `@RequestMapping(method = RequestMethod.GET)`. Used to map GET requests.
+- **Example:** `@GetMapping("/byName")`
+
+### @PostMapping
+- **Description:** Shortcut for `@RequestMapping(method = RequestMethod.POST)`. Used to map POST requests.
+- **Example:** `@PostMapping`
+
+### @PathVariable
+- **Description:** Indicates that a method parameter should be bound to a URI template variable.
+- **Example:** `@PathVariable("doctorId") long doctorId`
+
+### @RequestBody
+- **Description:** Indicates that a method parameter should be bound to the body of the web request.
+- **Example:** `@RequestBody Doctor doctor`
+
+### @Autowired
+- **Description:** Marks a constructor, field, setter method, or config method as to be autowired by Spring's dependency injection facilities.
+- **Example:** `@Autowired private DoctorService doctorService`
+
+### @Service
+- **Description:** Indicates that an annotated class is a service. This annotation serves as a specialization of `@Component`, allowing for implementation classes to be autodetected through classpath scanning.
+- **Example:** `@Service`
+
+### @Repository
+- **Description:** Indicates that an annotated class is a repository, which is an abstraction of data access and storage.
+- **Example:** `@Repository`
+
+### @Query
+- **Description:** Used to declare finder queries directly on repository methods. It is applied at the method level.
+- **Example:** `@Query("SELECT d FROM Doctor d WHERE d.name = :name")`
+
+### @Transactional
+- **Description:** Marks a method or class as transactional. This annotation is used to manage transactions declaratively.
+- **Example:** `@Transactional`
+
+### @OneToOne
+- **Description:** Defines a one-to-one relationship between two entities.
+- **Example:** `@OneToOne(mappedBy = "specialization")`
+
+### @OneToMany
+- **Description:** Defines a one-to-many relationship between two entities.
+- **Example:** `@OneToMany(mappedBy = "patient")`
+
+### @ManyToMany
+- **Description:** Defines a many-to-many relationship between two entities.
+- **Example:** `@ManyToMany`
+
+### @ManyToOne
+- **Description:** Defines a many-to-one relationship between two entities.
+- **Example:** `@ManyToOne`
+
+
 ## Contributing
 
 1. Fork the repository.
