@@ -31,4 +31,20 @@ public class SpecializationService {
     public void deleteSpecializationById(long specializationId) {
         specializationRepo.deleteById(specializationId);
     }
+
+    public boolean updateSpecialization(long specializationId, String name) {
+        try {
+            Optional<Specialization> optionalSpecialization = specializationRepo.findById(specializationId);
+            if (optionalSpecialization.isPresent()) {
+                Specialization specialization = optionalSpecialization.get();
+                specialization.setName(name);
+                specializationRepo.save(specialization);
+                return true;
+            } else {
+                return false; // Specialization not found
+            }
+        } catch (Exception e) {
+            return false; // Handle exception as needed
+        }
+    }
 }

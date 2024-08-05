@@ -28,4 +28,14 @@ public class AppointmentController {
     public boolean scheduleAppointment(@RequestParam long patientId, @RequestParam long doctorId, @RequestParam LocalDateTime date, @RequestParam String reason) {
         return appointmentService.scheduleAppointment(patientId, doctorId, date, reason);
     }
+
+    @PutMapping("/{appointmentId}")
+    public boolean updateAppointment(
+            @PathVariable("appointmentId") long appointmentId,
+            @RequestParam long patientId,
+            @RequestParam long doctorId,
+            @RequestParam LocalDateTime date,
+            @RequestParam String reason) {
+        return appointmentService.updateAppointment(appointmentId, patientId, doctorId, date, reason);
+    }
 }

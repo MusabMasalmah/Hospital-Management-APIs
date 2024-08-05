@@ -65,4 +65,10 @@ public class PatientService {
         patientRepo.deleteById(patientId);
     }
 
+    public Patient updatePatient(long id, Patient updatedPatient) {
+        Patient patient = patientRepo.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
+        patient.setName(updatedPatient.getName());
+        return patientRepo.save(patient);
+    }
+
 }

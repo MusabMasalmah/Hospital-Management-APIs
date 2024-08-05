@@ -31,4 +31,9 @@ public class MedicationController {
     public void deleteMedication(@PathVariable("medicationId") long medicationId) {
         medicationService.deleteMedicationById(medicationId);
     }
+
+    @PutMapping("/{medicationId}")
+    public Medication updateMedication(@PathVariable("medicationId") long medicationId, @RequestBody Medication newMedication) {
+        return medicationService.updateMedication(medicationId, newMedication);
+    }
 }

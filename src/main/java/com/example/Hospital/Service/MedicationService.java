@@ -32,4 +32,16 @@ public class MedicationService {
     public void deleteMedicationById(long medicationId) {
         mediciationRepo.deleteById(medicationId);
     }
+    public Medication updateMedication(long id, Medication updatedMedication) {
+        Optional<Medication> existingMedicationOpt = mediciationRepo.findById(id);
+        if (existingMedicationOpt.isPresent()) {
+            Medication existingMedication = existingMedicationOpt.get();
+            existingMedication.setName(updatedMedication.getName());
+            existingMedication.setAvailable(updatedMedication.getAvailable());
+
+            return mediciationRepo.save(existingMedication);
+        } else {
+            throw new RuntimeException("Medication not found with id: " + id);
+        }
+    }
 }
