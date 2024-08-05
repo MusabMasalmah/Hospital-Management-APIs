@@ -20,8 +20,10 @@ public class Medication {
     )
     private long id;
     private String name;
+    private Integer available_medications;
     @ManyToMany(mappedBy = "medications")
     private List<Patient> patients;
+
 
     public Medication() {}
 
@@ -53,5 +55,13 @@ public class Medication {
 
     public void setPatients(List<Patient> patients) {
         this.patients = patients;
+    }
+
+    public int getAvailable() {
+        return available_medications;
+    }
+
+    public void setAvailable(int available) {
+        this.available_medications = available;
     }
 }

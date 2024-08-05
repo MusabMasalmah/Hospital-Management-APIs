@@ -33,5 +33,11 @@ public class SpecializationController {
         specializationService.deleteSpecializationById(specializationId);
     }
 
+    @PutMapping("/{specializationId}")
+    public boolean updateSpecialization(@PathVariable("specializationId") long specializationId, @RequestBody SpecializationDTO specializationDTO) {
+        return specializationService.updateSpecialization(specializationId, specializationDTO.getName());
+    }
+
+
 
 }

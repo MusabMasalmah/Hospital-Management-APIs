@@ -46,4 +46,23 @@ public class AppointmentService {
             return false;
         }
     }
+
+    public boolean updateAppointment(long id, long patientId, long doctorId, LocalDateTime date, String reason) {
+        try {
+            Appointment appointment = appointmentRepo.findById(id).orElseThrow(() -> new RuntimeException("Appointment not found"));
+            Patient patient = patientRepo.findById(patientId).orElseThrow(() -> new RuntimeException("Patient not found"));
+            Doctor doctor = doctorRepo.findById(doctorId).orElseThrow(() -> new RuntimeException("Doctor not found"));
+
+            appointment.setPatient(patient);
+            appointment.setDoctor(doctor);
+            appointment.setAppointmentDate(date);
+            appointment.setReason(reason);
+
+            appointmentRepo.save(appointment);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

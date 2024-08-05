@@ -10,6 +10,7 @@ public class MedicatoinDTO {
     private long id;
     private String name;
     private List<Long> patientsIDs;
+    private Integer available_medications;
 
     public long getId() {
         return id;
@@ -33,5 +34,13 @@ public class MedicatoinDTO {
 
     public void setPatientsIDs(List<Long> patientsIDs) {
         this.patientsIDs = patientsIDs;
+    }
+
+    public Integer getAvailable_medications() {
+        return available_medications;
+    }
+
+    public void setAvailable_medications(Integer available_medications) {
+        this.available_medications = available_medications;
     }
 }

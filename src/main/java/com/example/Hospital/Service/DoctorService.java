@@ -52,7 +52,6 @@ public class DoctorService {
     public Doctor updateDoctor(long id, Doctor updatedDoctor) {
         Doctor doctor = doctorRepo.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found with id: " + id));
         doctor.setName(updatedDoctor.getName());
-        doctor.setSpecialization(updatedDoctor.getSpecialization());
         return doctorRepo.save(doctor);
     }
 
