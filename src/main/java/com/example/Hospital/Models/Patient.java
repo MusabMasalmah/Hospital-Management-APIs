@@ -32,6 +32,10 @@ public class Patient {
     )
     private List<Medication> medications;
 
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
+
+
     public Patient() {}
 
     public Patient(long id, String name, Doctor doctor, List<Medication> medications) {
@@ -71,5 +75,13 @@ public class Patient {
 
     public void setMedications(List<Medication> medications) {
         this.medications = medications;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
     }
 }
