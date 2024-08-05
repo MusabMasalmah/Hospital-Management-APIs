@@ -40,6 +40,12 @@ This project provides a set of RESTful APIs for managing hospital-related data. 
 mvn clean install
 mvn spring-boot:run
 ```
+## API Endpoints and POSTMAN Testing
+
+### Postman Structure:
+
+![image](https://github.com/user-attachments/assets/c2e4db9f-7159-4870-b2f9-1166081991af)
+
 
 ### Doctors:
 
@@ -93,39 +99,6 @@ mvn spring-boot:run
   ![PUT /Appointment/{appointmentId}](https://example.com/path/to/your/put-appointment-image.png)
 
 
-## API Endpoints
-
-### Doctors:
-
-- **GET /Doctor** - Retrieve all doctors
-- **GET /Doctor/byName** - Retrieve a doctor by name
-- **POST /Doctor** - Add a new doctor
-- **POST /Doctor/{doctorId}/to/{specId}** - Assign a specialization to a doctor
-- **PUT /Doctor/{doctorId}** - Update a doctor's details (updating functionality should be defined as needed)
-
-### Patients:
-
-- **GET /Patient** - Retrieve all patients
-- **POST /Patient** - Add a new patient
-- **POST /Patient/med/{medId}/to/{patId}** - Assign medication to a patient
-- **POST /Patient/patient/{patId}/to/{docId}** - Assign a patient to a doctor
-- **PUT /Patient/{patientId}** - Update a patient's details
-
-### Medications:
-
-- **GET /Med** - Retrieve all medications
-- **POST /Med** - Add a new medication
-
-### Specializations:
-
-- **GET /Spec** - Retrieve all specializations
-- **POST /Spec** - Add a new specialization
-- **PUT /Spec/{specializationId}** - Update a specialization's name
-
-### Appointments:
-- **GET /Appointment** - Retrieve all appointments
-- **POST /Appointment/schedule** - Schedule a new appointment
-- **PUT /Appointment/{appointmentId}** - Update an existing appointment
 
 ## Annotations Explained
 
