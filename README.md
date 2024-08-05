@@ -15,7 +15,7 @@ This project provides a set of RESTful APIs for managing hospital-related data. 
 
 - **Backend Framework:** Spring Boot
 - **Database:** PostgreSQL
-- **Dependency Management:** Maven/Gradle
+- **Dependency Management:** Maven
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ This project provides a set of RESTful APIs for managing hospital-related data. 
 
 - Java 11 or higher
 - PostgreSQL
-- Maven or Gradle
+- Maven
 - Git
 
 ### Setup the Database
