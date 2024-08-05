@@ -42,62 +42,49 @@ mvn spring-boot:run
 ```
 ## API Endpoints and POSTMAN Testing
 
-### Postman Structure:
+### Random Postman Testing:
 
 ![image](https://github.com/user-attachments/assets/c2e4db9f-7159-4870-b2f9-1166081991af)
+
+![image](https://github.com/user-attachments/assets/1604013a-0114-45b1-9eb4-d3966e9cbe24)
+
+![image](https://github.com/user-attachments/assets/0120c593-af30-45ab-a080-1da657f44940)
+
+
 
 
 ### Doctors:
 
 - **GET /Doctor** - Retrieve all doctors
-  ![GET /Doctor](https://example.com/path/to/your/get-doctor-image.png)
 - **GET /Doctor/byName** - Retrieve a doctor by name
-  ![GET /Doctor/byName](https://example.com/path/to/your/get-doctor-byname-image.png)
 - **POST /Doctor** - Add a new doctor
-  ![POST /Doctor](https://example.com/path/to/your/post-doctor-image.png)
 - **POST /Doctor/{doctorId}/to/{specId}** - Assign a specialization to a doctor
-  ![POST /Doctor/{doctorId}/to/{specId}](https://example.com/path/to/your/post-doctor-to-spec-image.png)
 - **PUT /Doctor/{doctorId}** - Update a doctor's details
-  ![PUT /Doctor/{doctorId}](https://example.com/path/to/your/put-doctor-image.png)
 
 ### Patients:
 
 - **GET /Patient** - Retrieve all patients
-  ![GET /Patient](https://example.com/path/to/your/get-patient-image.png)
 - **POST /Patient** - Add a new patient
-  ![POST /Patient](https://example.com/path/to/your/post-patient-image.png)
 - **POST /Patient/med/{medId}/to/{patId}** - Assign medication to a patient
-  ![POST /Patient/med/{medId}/to/{patId}](https://example.com/path/to/your/post-patient-med-image.png)
 - **POST /Patient/patient/{patId}/to/{docId}** - Assign a patient to a doctor
-  ![POST /Patient/patient/{patId}/to/{docId}](https://example.com/path/to/your/post-patient-to-doctor-image.png)
 - **PUT /Patient/{patientId}** - Update a patient's details
-  ![PUT /Patient/{patientId}](https://example.com/path/to/your/put-patient-image.png)
 
 ### Medications:
 
 - **GET /Med** - Retrieve all medications
-  ![GET /Med](https://example.com/path/to/your/get-med-image.png)
 - **POST /Med** - Add a new medication
-  ![POST /Med](https://example.com/path/to/your/post-med-image.png)
 
 ### Specializations:
 
 - **GET /Spec** - Retrieve all specializations
-  ![GET /Spec](https://example.com/path/to/your/get-spec-image.png)
 - **POST /Spec** - Add a new specialization
-  ![POST /Spec](https://example.com/path/to/your/post-spec-image.png)
 - **PUT /Spec/{specializationId}** - Update a specialization's name
-  ![PUT /Spec/{specializationId}](https://example.com/path/to/your/put-spec-image.png)
 
 ### Appointments:
 
 - **GET /Appointment** - Retrieve all appointments
-  ![GET /Appointment](https://example.com/path/to/your/get-appointment-image.png)
 - **POST /Appointment/schedule** - Schedule a new appointment
-  ![POST /Appointment/schedule](https://example.com/path/to/your/post-appointment-schedule-image.png)
 - **PUT /Appointment/{appointmentId}** - Update an existing appointment
-  ![PUT /Appointment/{appointmentId}](https://example.com/path/to/your/put-appointment-image.png)
-
 
 
 ## Annotations Explained
