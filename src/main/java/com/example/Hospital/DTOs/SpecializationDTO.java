@@ -1,7 +1,13 @@
 package com.example.Hospital.DTOs;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 public class SpecializationDTO {
+
     private long id;
+
+    @NotBlank(message = "Name cannot be blank")
     private String name;
 
     public long getId() {

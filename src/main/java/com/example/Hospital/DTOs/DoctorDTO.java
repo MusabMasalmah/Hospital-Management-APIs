@@ -2,11 +2,15 @@ package com.example.Hospital.DTOs;
 
 import com.example.Hospital.Models.Patient;
 import com.example.Hospital.Models.Specialization;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
 public class DoctorDTO {
     private long id;
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 2, max = 100)
     private String name;
     private long specializationID;
     private List<Long> patientsIDs;

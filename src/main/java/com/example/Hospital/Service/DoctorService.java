@@ -49,11 +49,20 @@ public class DoctorService {
                 .orElseThrow(() -> new RuntimeException("Doctor not found with name: " + name));
     }
 
-    public Doctor updateDoctor(long id, Doctor updatedDoctor) {
+    public boolean updateDoctor(long id, Doctor updatedDoctor) {
+        // Find the doctor by id, or throw an exception if not found
         Doctor doctor = doctorRepo.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found with id: " + id));
+
+        // Update the doctor's details
         doctor.setName(updatedDoctor.getName());
-        return doctorRepo.save(doctor);
+
+        // Save the updated doctor and check if it was successful
+        Doctor savedDoctor = doctorRepo.save(doctor);
+
+        // Return true if the save operation was successful
+        return savedDoctor != null;
     }
+
 
     public void deleteDoctorById(long id) {
         if (doctorRepo.existsById(id)) {

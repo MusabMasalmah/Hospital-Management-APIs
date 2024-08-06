@@ -65,10 +65,19 @@ public class PatientService {
         patientRepo.deleteById(patientId);
     }
 
-    public Patient updatePatient(long id, Patient updatedPatient) {
-        Patient patient = patientRepo.findById(id).orElseThrow(() -> new RuntimeException("Doctor not found"));
+    public boolean updatePatient(long id, Patient updatedPatient) {
+        // Find the patient by id, or throw an exception if not found
+        Patient patient = patientRepo.findById(id).orElseThrow(() -> new RuntimeException("Patient not found with id: " + id));
+
+        // Update the patient's details
         patient.setName(updatedPatient.getName());
-        return patientRepo.save(patient);
+
+        // Save the updated patient and check if it was successful
+        Patient savedPatient = patientRepo.save(patient);
+
+        // Return true if the save operation was successful
+        return savedPatient != null;
     }
+
 
 }
