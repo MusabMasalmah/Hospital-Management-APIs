@@ -44,11 +44,16 @@ mvn spring-boot:run
 
 ### Random Postman Testing:
 
+<details>
+  <summary>Click to see testing</summary>
+  
 ![image](https://github.com/user-attachments/assets/c2e4db9f-7159-4870-b2f9-1166081991af)
-
 ![image](https://github.com/user-attachments/assets/1604013a-0114-45b1-9eb4-d3966e9cbe24)
-
 ![image](https://github.com/user-attachments/assets/0120c593-af30-45ab-a080-1da657f44940)
+
+</details>
+
+
 
 
 
