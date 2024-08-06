@@ -1,9 +1,14 @@
 package com.example.Hospital.DTOs;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class PatientDTO {
     private long id;
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 2, max = 100)
     private String name;
     private Long doctorId;
     private List<Long> medicationIds;

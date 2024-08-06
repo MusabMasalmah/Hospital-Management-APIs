@@ -1,15 +1,17 @@
 package com.example.Hospital.DTOs;
 
-import com.example.Hospital.Models.Patient;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.ManyToMany;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
 public class MedicatoinDTO {
     private long id;
+    @NotBlank(message = "Name cannot be blank")
     private String name;
     private List<Long> patientsIDs;
+    @NotNull(message = "Number cannot be null")
     private Integer available_medications;
 
     public long getId() {

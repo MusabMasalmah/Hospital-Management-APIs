@@ -2,9 +2,12 @@ package com.example.Hospital.Service;
 
 import com.example.Hospital.Models.Specialization;
 import com.example.Hospital.Repositoris.SpecializationRepo;
+import com.example.Hospital.Repositoris.pagingRepo;
+import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +15,8 @@ import java.util.Optional;
 public class SpecializationService {
     @Autowired
     private SpecializationRepo specializationRepo;
+    @Autowired
+    private pagingRepo PagingRepo;
 
     public List<Specialization> getSpecializations(){
         return specializationRepo.findAll();
