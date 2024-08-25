@@ -37,7 +37,6 @@ public class MedicationService {
         if (existingMedicationOpt.isPresent()) {
             Medication existingMedication = existingMedicationOpt.get();
             existingMedication.setName(updatedMedication.getName());
-            existingMedication.setAvailable(updatedMedication.getAvailable());
 
             return mediciationRepo.save(existingMedication);
         } else {

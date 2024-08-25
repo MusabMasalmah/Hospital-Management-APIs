@@ -11,8 +11,6 @@ public class MedicatoinDTO {
     @NotBlank(message = "Name cannot be blank")
     private String name;
     private List<Long> patientsIDs;
-    @NotNull(message = "Number cannot be null")
-    private Integer available_medications;
 
     public long getId() {
         return id;
@@ -38,11 +36,11 @@ public class MedicatoinDTO {
         this.patientsIDs = patientsIDs;
     }
 
-    public Integer getAvailable_medications() {
-        return available_medications;
-    }
-
-    public void setAvailable_medications(Integer available_medications) {
-        this.available_medications = available_medications;
+    @Override
+    public String toString() {
+        return "MedicatoinDTO{" +
+                "name='" + name + '\'' +
+                ", availableMedications=" +
+                '}';
     }
 }

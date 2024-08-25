@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/Med")
 @Validated // Enables validation on method parameters
+@CrossOrigin(origins = "http://localhost:4200")
 public class MedicationController {
 
     @Autowired
@@ -44,8 +45,11 @@ public class MedicationController {
      */
     @PostMapping
     public ResponseEntity<Medication> addMedication(@Valid @RequestBody MedicatoinDTO medicationDTO) {
+        System.out.println("Received : " + medicationDTO);
+
         // Convert DTO to entity
         Medication medication = medicationMapper.toEntity(medicationDTO);
+        System.out.println("Received : " + medication);
         // Add medication via service
         Medication createdMedication = medicationService.addMedication(medication);
         // Return created medication with HTTP 201 Created status

@@ -2,8 +2,6 @@ package com.example.Hospital.Models;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "appointment")
 public class Appointment {
@@ -18,19 +16,20 @@ public class Appointment {
             generator = "appointment_sequence"
     )
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id", nullable = true)
     private Patient patient;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doctor_id", nullable = true)
     private Doctor doctor;
-    private LocalDateTime appointmentDate;
+    private String appointmentDate;
     private String reason;
 
     public Appointment() {
     }
 
-    public Appointment(Patient patient, Doctor doctor, LocalDateTime appointmentDate, String reason) {
+    public Appointment(Patient patient, Doctor doctor, String appointmentDate, String reason) {
         this.patient = patient;
         this.doctor = doctor;
         this.appointmentDate = appointmentDate;
@@ -61,11 +60,11 @@ public class Appointment {
         this.doctor = doctor;
     }
 
-    public LocalDateTime getAppointmentDate() {
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(LocalDateTime appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 

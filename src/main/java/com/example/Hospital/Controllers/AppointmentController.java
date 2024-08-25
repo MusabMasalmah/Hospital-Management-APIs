@@ -2,6 +2,7 @@ package com.example.Hospital.Controllers;
 
 import com.example.Hospital.DTOs.AppointmentDTO;
 import com.example.Hospital.Mappers.AppointmentMapper;
+import com.example.Hospital.Models.Appointment;
 import com.example.Hospital.Service.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/Appointment")
 @Validated // Enables validation on method parameters
+@CrossOrigin(origins = "http://localhost:4200")
 public class AppointmentController {
 
     @Autowired
@@ -28,11 +30,13 @@ public class AppointmentController {
      */
     @GetMapping
     public List<AppointmentDTO> getAppointments() {
-        // Fetches all appointments from the service, maps them to DTOs, and returns the list
-        return appointmentService.getAppointments().stream()
+        List<Appointment> appointments = appointmentService.getAppointments();
+
+        return appointments.stream()
                 .map(appointmentMapper::toDto)
                 .collect(Collectors.toList());
     }
+
 
     /**
      * Schedules a new appointment.
@@ -46,7 +50,7 @@ public class AppointmentController {
     public boolean scheduleAppointment(
             @RequestParam long patientId,
             @RequestParam long doctorId,
-            @RequestParam LocalDateTime date,
+            @RequestParam String date,
             @RequestParam String reason) {
         // Schedules an appointment using the provided details and returns the result
         return appointmentService.scheduleAppointment(patientId, doctorId, date, reason);
@@ -66,9 +70,15 @@ public class AppointmentController {
             @PathVariable("appointmentId") long appointmentId,
             @RequestParam long patientId,
             @RequestParam long doctorId,
-            @RequestParam LocalDateTime date,
+            @RequestParam String date,
             @RequestParam String reason) {
         // Updates an appointment with the given ID using the provided details and returns the result
         return appointmentService.updateAppointment(appointmentId, patientId, doctorId, date, reason);
+    }
+
+    @DeleteMapping("/{appointmentId}")
+    public void deleteAppointment(@PathVariable("appointmentId") long appointmentId) {
+        // Deletes the doctor using the service
+        appointmentService.deleteAppointmentById(appointmentId);
     }
 }

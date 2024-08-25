@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/Spec")
 @Validated // Enables validation on method parameters
+@CrossOrigin(origins = "http://localhost:4200")
 public class SpecializationController {
 
     @Autowired

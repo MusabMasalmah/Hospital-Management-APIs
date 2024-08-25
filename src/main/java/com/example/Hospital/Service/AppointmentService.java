@@ -28,7 +28,7 @@ public class AppointmentService {
     }
 
 
-    public boolean scheduleAppointment(long patientId, long doctorId, LocalDateTime date, String reason) {
+    public boolean scheduleAppointment(long patientId, long doctorId, String date, String reason) {
         try {
             Patient patient = patientRepo.findById(patientId).orElseThrow(() -> new RuntimeException("Patient not found"));
             Doctor doctor = doctorRepo.findById(doctorId).orElseThrow(() -> new RuntimeException("Doctor not found"));
@@ -47,7 +47,7 @@ public class AppointmentService {
         }
     }
 
-    public boolean updateAppointment(long id, long patientId, long doctorId, LocalDateTime date, String reason) {
+    public boolean updateAppointment(long id, long patientId, long doctorId, String date, String reason) {
         try {
             Appointment appointment = appointmentRepo.findById(id).orElseThrow(() -> new RuntimeException("Appointment not found"));
             Patient patient = patientRepo.findById(patientId).orElseThrow(() -> new RuntimeException("Patient not found"));
@@ -63,6 +63,13 @@ public class AppointmentService {
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+    public void deleteAppointmentById(long id) {
+        if (appointmentRepo.existsById(id)) {
+            appointmentRepo.deleteById(id);
+        } else {
+            throw new RuntimeException("Appointment not found with id: " + id);
         }
     }
 }

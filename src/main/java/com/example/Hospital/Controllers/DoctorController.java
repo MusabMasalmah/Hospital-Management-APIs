@@ -5,6 +5,9 @@ import com.example.Hospital.Mappers.DoctorMapper;
 import com.example.Hospital.Models.Doctor;
 import com.example.Hospital.Service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
@@ -14,6 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/Doctor")
 @Validated // Enables validation on method parameters
+@CrossOrigin(origins = "http://localhost:4200")
 public class DoctorController {
 
     @Autowired
@@ -32,6 +36,15 @@ public class DoctorController {
         return doctorService.getDoctors().stream()
                 .map(doctorMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/page")
+    public Page<DoctorDTO> getDoctorsByPage(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Doctor> doctorPage = doctorService.getDoctorsByPage(pageable);
+        return doctorPage.map(doctorMapper::toDto);
     }
 
     /**
