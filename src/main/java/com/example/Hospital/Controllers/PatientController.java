@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/Patient")
 @Validated // Enables validation on method parameters
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatientController {
 
     @Autowired
@@ -29,8 +30,11 @@ public class PatientController {
      */
     @GetMapping
     public List<PatientDTO> getPatients() {
-        // Fetches all patients from the service, maps them to DTOs, and returns the list
-        return patientService.getPatients().stream()
+        // Fetch all patients from the service
+        List<Patient> patients = patientService.getPatients();
+
+        // Map the patients to PatientDTOs
+        return patients.stream()
                 .map(patientMapper::toDto)
                 .collect(Collectors.toList());
     }

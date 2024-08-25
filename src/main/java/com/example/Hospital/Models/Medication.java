@@ -20,9 +20,6 @@ public class Medication {
     )
     private long id;
     private String name;
-    @Column(name = "available_medications")
-    private Integer available_medications;
-
     @ManyToMany(mappedBy = "medications")
     private List<Patient> patients;
 
@@ -59,11 +56,11 @@ public class Medication {
         this.patients = patients;
     }
 
-    public int getAvailable() {
-        return available_medications;
-    }
-
-    public void setAvailable(Integer available) {
-        this.available_medications = available;
+    @Override
+    public String toString() {
+        return "Medicatoin{" +
+                "name='" + name + '\'' +
+                ", availableMedications=" +
+                '}';
     }
 }

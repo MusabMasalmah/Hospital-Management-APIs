@@ -12,7 +12,7 @@ public class AppointmentDTO {
     private Long id;
     private Long patientID;
     private Long doctorID;
-    private LocalDateTime appointmentDate;
+    private String appointmentDate;
     @NotBlank(message = "Name cannot be blank")
     @Size(min = 2, max = 100)
     private String reason;
@@ -41,11 +41,11 @@ public class AppointmentDTO {
         this.doctorID = doctorID;
     }
 
-    public LocalDateTime getAppointmentDate() {
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(LocalDateTime appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 
